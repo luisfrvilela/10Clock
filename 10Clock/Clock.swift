@@ -114,6 +114,7 @@ open class TenClock : UIControl{
     
     open var headText: String = "Start"
     open var tailText: String = "End"
+    open var diferrenceDateText: String = "00:00"
     
     open var headTextColor = UIColor.black
     open var tailTextColor = UIColor.black
@@ -399,6 +400,9 @@ open class TenClock : UIControl{
         titleTextLayer.string = "\(fiveMinIncrements / 12):\(stringMinutes)"
         titleTextLayer.position = gradientLayer.center
         titleTextLayer.display()
+        if let stringDate = titleTextLayer.string as? String {
+             diferrenceDateText = stringDate
+        }
     }
     
     func tick() -> CAShapeLayer{
